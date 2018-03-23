@@ -14,6 +14,7 @@
 		105E30D72064B5D90026EF7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105E30D52064B5D90026EF7F /* LaunchScreen.storyboard */; };
 		105E30E22064B5D90026EF7F /* HealthSenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E30E12064B5D90026EF7F /* HealthSenseTests.swift */; };
 		105E30ED2064B5D90026EF7F /* HealthSenseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E30EC2064B5D90026EF7F /* HealthSenseUITests.swift */; };
+		105E30FB2064B60A0026EF7F /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105E30FA2064B60A0026EF7F /* EstimoteSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		105E30E82064B5D90026EF7F /* HealthSenseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthSenseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		105E30EC2064B5D90026EF7F /* HealthSenseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSenseUITests.swift; sourceTree = "<group>"; };
 		105E30EE2064B5D90026EF7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		105E30FA2064B60A0026EF7F /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
+		105E30FC2064B6270026EF7F /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105E30FB2064B60A0026EF7F /* EstimoteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +101,14 @@
 		105E30CB2064B5D90026EF7F /* HealthSense */ = {
 			isa = PBXGroup;
 			children = (
+				105E30FA2064B60A0026EF7F /* EstimoteSDK.framework */,
 				105E30CC2064B5D90026EF7F /* AppDelegate.swift */,
 				105E30CE2064B5D90026EF7F /* ViewController.swift */,
 				105E30D02064B5D90026EF7F /* Main.storyboard */,
 				105E30D32064B5D90026EF7F /* Assets.xcassets */,
 				105E30D52064B5D90026EF7F /* LaunchScreen.storyboard */,
 				105E30D82064B5D90026EF7F /* Info.plist */,
+				105E30FC2064B6270026EF7F /* ObjCBridge.h */,
 			);
 			path = HealthSense;
 			sourceTree = "<group>";
@@ -194,6 +200,11 @@
 					105E30C82064B5D90026EF7F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					105E30DC2064B5D90026EF7F = {
 						CreatedOnToolsVersion = 9.2;
@@ -427,10 +438,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QBJW7BRGB2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HealthSense",
+				);
 				INFOPLIST_FILE = HealthSense/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.healthsense.HealthSense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,10 +458,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QBJW7BRGB2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HealthSense",
+				);
 				INFOPLIST_FILE = HealthSense/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.healthsense.HealthSense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
